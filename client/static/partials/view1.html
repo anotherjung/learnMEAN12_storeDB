@@ -1,0 +1,55 @@
+	<!--1b add ng-controller directive to div container -->
+	  <div class="container" ng-controller='orderController'>
+	  	<div class="row">
+	  	 <div class="col s12"> 
+	  	 	<h4>Add a new order</h4>
+		    	<!--4 filter_name  orderBy -->
+		    	<!--7 select existing customer name -->
+		    	<div class="input-field col s12">
+		    		<select class="browser-default" ng-model='newOrder.customer'>
+		    		<option value="" disabled selected>Select Customer Name</option>
+			       	<option ng-repeat="customer in customers">{{customer.name}}</option>
+			       	</select>
+
+			       	<select class="browser-default" ng-model='newOrder.product'>
+		    		<option value="" disabled selected>Select Product</option>
+			       		<option>Nike Shoes</option>​
+						<option>Nike Tees</option>​
+						<option>Nike Shorts</option>​
+			       	</select>
+
+			       	<select class="browser-default" ng-model='newOrder.qty'>
+		    		<option value="" disabled selected>Select QTY</option>
+			       		<option>1</option>​
+						<option>2</option>​
+						<option>3</option>​
+			       	</select>
+
+			       	<input class= "btn green" type="submit" value="Submit" ng-click='addOrder()'>
+		   		</div>
+	
+		</div>
+		</div>
+
+		<div class="row">
+	    <div class="col s12"> 
+
+	    		  	 	<label for="search1">Search:</label>
+	  	 	<input id="search1" type="text" ng-model="filter_orders">
+	    	<table class="center-align">
+	    					<thead>​
+			<th>Customer Name</th>​
+			<th>Product</th>​
+			<th>Quantity</th>​
+			<th>Date</th>​
+		</thead>​
+	    		<tr ng-repeat="order in orders | filter: filter_orders | orderBy: 'created'">
+	    			<td ng-bind='order.customer'></td>
+	    			<td ng-bind='order.product'></td>
+	    			<td ng-bind='order.qty'></td>
+	    			<td ng-bind="order.created | date:'MMMM d, yyyy hh:mm:ss a'"></td>
+	    		</tr>
+	    	</table>
+	  	</div>   
+	  	</div>
+	  </div>

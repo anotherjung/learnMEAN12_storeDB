@@ -1,0 +1,18 @@
+<html>
+<head>
+	<link href='css/materialize.css' rel='stylesheet' />
+	<script src='js/angular.js'/></script>
+	<script src='js/jquery-2.1.4.min.js' /></script>
+	<!--5 add lib file-->
+	<script src='js/angular-route.js'/></script>
+	<!--7 move angular code -->
+	<script src='js/script.js'/></script>
+</head>
+<body ng-app='myApp'>
+	<!--5 add navbar for $routeProvider -->
+	<!--7 add link for customer & orders -->
+	<a href="#/partials2">Customers</a> | <a href="#/">Orders</a>
+	<div ng-view="">
+	</div>
+</body>
+</html>
